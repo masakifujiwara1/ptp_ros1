@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>PTP_ros1</name>
+  <name>ptp_ros1</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="fmasaki2020@gmail.com">root</maintainer>
@@ -11,9 +11,9 @@
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
 
-  <run_depend>roscpp</run_depend>
-  <run_depend>rospy</run_depend>
-  <run_depend>std_msgs</run_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
 
   <test_depend>rostest</test_depend>
 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(PTP_ros1)
+project(ptp_ros1)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -19,7 +19,7 @@ include_directories(
 )
 
 ## Declare a C++ executable
-# add_executable(${PROJECT_NAME}_node src/PTP_ros1_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/ptp_ros1_node.cpp)
 
 ## Add cmake target dependencies of the executable
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
