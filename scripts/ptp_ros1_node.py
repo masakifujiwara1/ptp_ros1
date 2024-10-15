@@ -53,7 +53,7 @@ class PtpRos1Node:
 
         self.marker_array_pub = rospy.Publisher('viz_marker', MarkerArray, queue_size=10)
         self.marker_array = MarkerArray()
-        self.timer = rospy.Timer(rospy.Duration(1), self.prediction)
+        self.timer = rospy.Timer(rospy.Duration(0.4), self.prediction)
 
     def ped_callback(self, msg):
         self.data_array = np.array(msg.data, dtype=np.dtype(msg.dtype)).reshape(msg.shape)

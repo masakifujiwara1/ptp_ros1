@@ -11,6 +11,10 @@ def CreateMarker(data, id_):
     line_strip.color.a = 1.0
     line_strip.color.b = 1.0
     line_strip.id = id_
+    line_strip.pose.orientation.x = 0
+    line_strip.pose.orientation.y = 0
+    line_strip.pose.orientation.z = 0
+    line_strip.pose.orientation.w = 1
 
     points_marker = Marker()
     points_marker.header.frame_id = "base_link"
@@ -21,6 +25,10 @@ def CreateMarker(data, id_):
     points_marker.color.a = 1.0
     points_marker.color.g = 1.0
     points_marker.id = id_ + 1
+    points_marker.pose.orientation.x = 0
+    points_marker.pose.orientation.y = 0
+    points_marker.pose.orientation.z = 0
+    points_marker.pose.orientation.w = 1
 
     for i in range(8):
         x = float(data[i, 0])
