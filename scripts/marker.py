@@ -4,7 +4,7 @@ from geometry_msgs.msg import Point
 
 def CreateMarker(data, id_):
     line_strip = Marker()
-    line_strip.header.frame_id = "base_link"
+    line_strip.header.frame_id = "map"
     line_strip.type = Marker.LINE_STRIP
     line_strip.action = Marker.ADD
     line_strip.scale.x = 0.05
@@ -17,7 +17,7 @@ def CreateMarker(data, id_):
     line_strip.pose.orientation.w = 1
 
     points_marker = Marker()
-    points_marker.header.frame_id = "base_link"
+    points_marker.header.frame_id = "map"
     points_marker.type = Marker.POINTS
     points_marker.action = Marker.ADD
     points_marker.scale.x = 0.1
