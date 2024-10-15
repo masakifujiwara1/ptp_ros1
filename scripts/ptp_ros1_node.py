@@ -52,7 +52,9 @@ class PtpRos1Node:
                 skip=1, norm_lap_matr=True)
 
         self.marker_array_pub = rospy.Publisher('viz_marker', MarkerArray, queue_size=10)
+        self.pred_marker_array_pub = rospy.Publisher('pred_marker', MarkerArray, queue_size=10)
         self.marker_array = MarkerArray()
+        self.pred_marker_array = MarkerArray()
         self.timer = rospy.Timer(rospy.Duration(0.4), self.prediction)
 
     def ped_callback(self, msg):
@@ -60,6 +62,7 @@ class PtpRos1Node:
 
     def prediction(self, event):
         self.marker_array = MarkerArray()
+        self.pred_marker_array = MarkerArray()
         raw_data_dict = self.test()
         if raw_data_dict == 0:
             return
@@ -72,8 +75,10 @@ class PtpRos1Node:
             line_strip, points_marker = CreateMarker(obs_pred_seq[:, i, :], id_cnt)
             self.marker_array.markers.append(line_strip)
             self.marker_array.markers.append(points_marker)
+            self.pred_marker_array.markers.append(points_marker)
             id_cnt += 2
         self.marker_array_pub.publish(self.marker_array)
+        self.pred_marker_array_pub.publish(self.pred_marker_array)
 
     def test(self, KSTEPS=1):
         self.model.eval()
@@ -101,16 +106,18 @@ class PtpRos1Node:
         num_of_objs = obs_traj_rel.shape[1]
         V_pred =  V_pred[:,:num_of_objs,:]
 
-        sx = torch.exp(V_pred[:,:,2]) 
-        sy = torch.exp(V_pred[:,:,3]) 
-        corr = torch.tanh(V_pred[:,:,4])
+        # V_pred[:,:,0] mu_x 平均ベクトル
+        # V_pred[:,:,1] mu_y
+        sx = torch.exp(V_pred[:,:,2]) # sigma_x 標準偏差
+        sy = torch.exp(V_pred[:,:,3]) # sigma_y
+        corr = torch.tanh(V_pred[:,:,4]) # rho xとy間の相関係数 range -1, 1
 
-        cov = torch.zeros(V_pred.shape[0], V_pred.shape[1], 2, 2).to(self.device)
+        cov = torch.zeros(V_pred.shape[0], V_pred.shape[1], 2, 2).to(self.device) # 共分散行列
         cov[:,:,0,0]= sx*sx
         cov[:,:,0,1]= corr*sx*sy
         cov[:,:,1,0]= corr*sx*sy
         cov[:,:,1,1]= sy*sy
-        mean = V_pred[:,:,0:2]
+        mean = V_pred[:,:,0:2] # xとyの平均ベクトル
 
         mvnormal = torchdist.MultivariateNormal(mean, cov)
 
