@@ -26,25 +26,25 @@ def anorm(p1,p2):
         return 0
     return 1/(NORM)
                 
-def seq_to_graph(seq_,seq_rel_,norm_lap_matr = True):
+def seq_to_graph(seq_,seq_rel,norm_lap_matr = True):
     # print(f'seq_: {seq_.shape}, seq_rel: {seq_rel_.shape}')
     # print(f'seq_: {seq_}, seq_rel: {seq_rel}')
     # seq_ = seq_.squeeze()
     # seq_rel = seq_rel.squeeze()
 
-    if torch.cuda.is_available():
-        # print(f'hoge')
-        seq = seq_.cpu().numpy().copy()
-        seq_rel = seq_rel_.cpu().numpy().copy()
+    # if torch.cuda.is_available():
+    #     # print(f'hoge')
+    #     seq = seq_.cpu().numpy().copy()
+    #     seq_rel = seq_rel_.cpu().numpy().copy()
         # print(seq_rel)
 
-    seq_len = seq.shape[2]
-    max_nodes = seq.shape[0]
+    seq_len = seq_.shape[2]
+    max_nodes = seq_.shape[0]
     
     V = np.zeros((seq_len,max_nodes,2))
     A = np.zeros((seq_len,max_nodes,max_nodes))
     for s in range(seq_len):
-        step_ = seq[:,:,s]
+        step_ = seq_[:,:,s]
         step_rel = seq_rel[:,:,s]
         # print(f'seq_: {step_}, seq_rel: {step_rel}')
         # print(s)
