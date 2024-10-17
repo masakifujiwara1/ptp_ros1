@@ -119,7 +119,10 @@ class PtpRos1Node:
         cov[:,:,1,1]= sy*sy
         mean = V_pred[:,:,0:2] # xとyの平均ベクトル
 
-        mvnormal = torchdist.MultivariateNormal(mean, cov)
+        try:
+            mvnormal = torchdist.MultivariateNormal(mean, cov)
+        except:
+            return 0
 
         V_x = seq_to_nodes(obs_traj.data.cpu().numpy().copy())
         V_obs = V_obs[:, :, :, :2]
