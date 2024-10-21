@@ -1,0 +1,69 @@
+repositories:
+  adi_driver:
+    type: git
+    url: https://github.com/open-rdc/adi_driver
+    version: master
+  any_node:
+    type: git
+    url: https://github.com/ANYbotics/any_node.git
+    version: master
+  emcl2:
+    type: git
+    url: https://github.com/masakifujiwara1/emcl2.git
+    version: master
+  marker_array_layer:
+    type: git
+    url: https://github.com/masakifujiwara1/marker_array_layer.git
+    version: main
+  mcl_3dl:
+    type: git
+    url: https://github.com/at-wat/mcl_3dl
+    version: master
+  mcl_3dl_msgs:
+    type: git
+    url: https://github.com/at-wat/mcl_3dl_msgs
+    version: master
+  message_logger:
+    type: git
+    url: https://github.com/ANYbotics/message_logger.git
+    version: master
+  navigation:
+    type: git
+    url: https://github.com/ros-planning/navigation
+    version: noetic-devel
+  ndt_omp:
+    type: git
+    url: https://github.com/koide3/ndt_omp.git
+    version: master
+  orne-box:
+    type: git
+    url: https://github.com/masakifujiwara1/orne-box
+    version: ptp-sim
+  ptp_msgs:
+    type: git
+    url: https://github.com/masakifujiwara1/ptp_msgs.git
+    version: ros1
+  ptp_ros1:
+    type: git
+    url: https://github.com/masakifujiwara1/ptp_ros1.git
+    version: develop
+  robot_localization:
+    type: git
+    url: https://github.com/cra-ros-pkg/robot_localization
+    version: noetic-devel
+  theta_simple_stitching:
+    type: git
+    url: https://github.com/masakifujiwara1/theta_simple_stitching.git
+    version: develop
+  waypoint_manager:
+    type: git
+    url: https://github.com/masakifujiwara1/waypoint_manager
+    version: main
+  yolov9_ros:
+    type: git
+    url: https://github.com/masakifujiwara1/yolov9_ros.git
+    version: dataset-devel
+  ypspur:
+    type: git
+    url: https://github.com/open-rdc/ypspur
+    version: noetic-devel
