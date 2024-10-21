@@ -6,10 +6,9 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /MarkerArray2
-        - /MarkerArray2/Status1
+        - /PointCloud21
       Splitter Ratio: 0.5
-    Tree Height: 484
+    Tree Height: 292
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -100,24 +99,36 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        base_footprint:
-          Value: true
         base_link:
           Value: true
-        base_scan:
+        gnss_link:
           Value: true
-        camera_rgb_optical_frame:
+        hokuyo_link:
           Value: true
-        caster_back_link:
-          Value: false
         imu_link:
           Value: false
+        left_caster_swivel_link:
+          Value: true
+        left_caster_wheel_link:
+          Value: true
+        mirror_lidar_link:
+          Value: true
         odom:
+          Value: true
+        right_caster_swivel_link:
+          Value: true
+        right_caster_wheel_link:
+          Value: true
+        surestar:
+          Value: true
+        surestar_base_link:
           Value: true
         wheel_left_link:
           Value: false
         wheel_right_link:
           Value: false
+        zed_camera_center:
+          Value: true
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -126,20 +137,30 @@ Visualization Manager:
       Show Names: true
       Tree:
         odom:
-          base_footprint:
-            base_link:
-              base_scan:
+          base_link:
+            gnss_link:
+              {}
+            hokuyo_link:
+              {}
+            imu_link:
+              {}
+            left_caster_swivel_link:
+              left_caster_wheel_link:
                 {}
-              camera_rgb_optical_frame:
+            mirror_lidar_link:
+              {}
+            right_caster_swivel_link:
+              right_caster_wheel_link:
                 {}
-              caster_back_link:
+            surestar_base_link:
+              surestar:
                 {}
-              imu_link:
-                {}
-              wheel_left_link:
-                {}
-              wheel_right_link:
-                {}
+            wheel_left_link:
+              {}
+            wheel_right_link:
+              {}
+            zed_camera_center:
+              {}
       Update Interval: 0
       Value: true
     - Class: rviz/MarkerArray
@@ -147,7 +168,105 @@ Visualization Manager:
       Marker Topic: /detect_human
       Name: MarkerArray
       Namespaces:
-        point: true
+        boxes: true
+        text1: true
+        text10: true
+        text100: true
+        text101: true
+        text102: true
+        text104: true
+        text105: true
+        text106: true
+        text108: true
+        text109: true
+        text11: true
+        text111: true
+        text112: true
+        text113: true
+        text115: true
+        text117: true
+        text118: true
+        text12: true
+        text121: true
+        text122: true
+        text123: true
+        text125: true
+        text127: true
+        text130: true
+        text131: true
+        text132: true
+        text133: true
+        text135: true
+        text136: true
+        text137: true
+        text139: true
+        text140: true
+        text141: true
+        text142: true
+        text143: true
+        text144: true
+        text147: true
+        text148: true
+        text150: true
+        text151: true
+        text152: true
+        text154: true
+        text17: true
+        text19: true
+        text2: true
+        text20: true
+        text26: true
+        text27: true
+        text28: true
+        text3: true
+        text30: true
+        text31: true
+        text32: true
+        text35: true
+        text36: true
+        text37: true
+        text38: true
+        text40: true
+        text42: true
+        text44: true
+        text46: true
+        text49: true
+        text5: true
+        text50: true
+        text51: true
+        text52: true
+        text53: true
+        text55: true
+        text56: true
+        text58: true
+        text59: true
+        text62: true
+        text64: true
+        text65: true
+        text67: true
+        text69: true
+        text7: true
+        text71: true
+        text73: true
+        text74: true
+        text76: true
+        text78: true
+        text8: true
+        text81: true
+        text82: true
+        text84: true
+        text85: true
+        text86: true
+        text87: true
+        text88: true
+        text89: true
+        text9: true
+        text91: true
+        text93: true
+        text95: true
+        text96: true
+        text97: true
+        text98: true
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -155,14 +274,70 @@ Visualization Manager:
       Marker Topic: /viz_marker
       Name: MarkerArray
       Namespaces:
-        "": true
+        {}
       Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 7.229468822479248
+        Min Value: -2.5744504928588867
+        Value: true
+      Axis: X
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: LaserScan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.05000000074505806
+      Style: Flat Squares
+      Topic: /head_scan
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.019999999552965164
+      Style: Flat Squares
+      Topic: /rfans/surestar_points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -186,7 +361,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 8.18438720703125
+      Distance: 1.4101321697235107
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -194,27 +369,27 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.47008880972862244
-        Y: 0.3405493497848511
-        Z: 0.3226858675479889
+        X: -1.8359495401382446
+        Y: 6.6990532875061035
+        Z: 6.6840291023254395
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.2203974723815918
-      Target Frame: <Fixed Frame>
-      Yaw: 3.1204097270965576
+      Pitch: 0.5153982043266296
+      Target Frame: base_link
+      Yaw: 1.9254227876663208
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1016
+  Height: 752
   Hide Left Dock: false
-  Hide Right Dock: false
+  Hide Right Dock: true
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001560000035efc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b0000026d000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006501000002ae000000eb0000001600ffffff000000010000010f0000035efc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003b0000035e000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000009b80000003efc0100000002fb0000000800540069006d00650100000000000009b80000030700fffffffb0000000800540069006d00650100000000000004500000000000000000000007470000035e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000015600000256fc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003b000001ad000000c700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006501000001ee000000a30000001600ffffff000000010000010f00000256fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b00000256000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004b00000003efc0100000002fb0000000800540069006d00650100000000000004b00000030700fffffffb0000000800540069006d00650100000000000004500000000000000000000003540000025600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -222,7 +397,7 @@ Window Geometry:
   Tool Properties:
     collapsed: false
   Views:
-    collapsed: false
-  Width: 2488
-  X: 72
-  Y: 388
+    collapsed: true
+  Width: 1200
+  X: 222
+  Y: 501
